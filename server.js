@@ -7,7 +7,7 @@ var cheerio = require("cheerio");
 
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = 3001;
 
 var app = express();
 
@@ -18,11 +18,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds351628.mlab.com:51628/heroku_43kv6nkk";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds351628.mlab.com:51628/heroku_314mp61k";
 
 mongoose.connect(MONGODB_URI);
-
-mongoose.connect("mongodb://localhost/movienews", { useNewUrlParser: true });
 
 app.get("/scrape", function(req, res) {
     axios.get("https://screenrant.com/movie-news/").then(function(response) {
